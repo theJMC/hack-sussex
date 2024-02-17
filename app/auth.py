@@ -23,6 +23,13 @@ def page_auth(f):
 def api_auth(f):
     @wraps(f)
     def decorated_func(*args, **kws):
-        return f(*args, **kws)
+        auth = request.authorization
+        if auth is None:
+            return abort(401)
 
+        user = User.query.filter_by(token=auth.token).first()
+        if user is None:
+            return abort(401)
+
+        return f(user, *args, **kws)
     return decorated_func

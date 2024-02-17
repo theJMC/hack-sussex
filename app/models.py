@@ -1,3 +1,5 @@
+from sqlalchemy import ForeignKey
+
 from app import db
 
 
@@ -13,3 +15,8 @@ class Plant(db.Model):
     id = db.Column(db.String(100), primary_key=True)
     name = db.Column(db.String(100))
     type = db.Column(db.String(100))
+    sunlight = db.Column(db.Integer)
+    water = db.Column(db.Integer)
+    notes = db.Column(db.String(300))
+    vibes = db.Column(db.String(100))
+    owner = db.Column(db.String(100), ForeignKey('user.id'))

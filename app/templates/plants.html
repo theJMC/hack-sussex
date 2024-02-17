@@ -1,0 +1,36 @@
+{% extends "layouts/layout.html" %}
+{% block title %}Smart Plants{% endblock %}
+
+{% block navbarContents %}
+
+{% endblock %}
+
+{% block content %}
+<h3 style="text-align: center;">Your Plants!</h3>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Sunlight</th>
+            <th>Water</th>
+            <th>Vibe</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plant in plants %}
+        <tr>
+            <th>{{ plant.id }}</th>
+            <th>{{ plant.name }}</th>
+            <td>{{ plant.type }}</td>
+            <td>{{ plant.sunlight }}</td>
+            <td>{{ plant.water }}</td>
+            <td>{{ plant.vibes }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br><br>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layouts/layout.html" %}
+{% block title %}Smart Plants{% endblock %}
+
+{% block navbarContents %}
+
+{% endblock %}
+
+{% block content %}
+    <style>
+    form {
+        margin: auto;
+        max-width: 475px;
+    }
+    </style>
+<h3 style="text-align: center;">New Plant!</h3>
+<hr>
+    <form style="width: ">
+        <div class="form-floating mb-1">
+            <input type="text" id="name" class="form-control" placeholder="name">
+            <label for="name">Name</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="text" id="type" class="form-control" placeholder="type">
+            <label for="type">Type</label>
+        </div>
+        <div class="form-floating mb-1">
+            <textarea class="form-control" placeholder="notes" id="notes" style="height: 100px;"></textarea>
+            <label for="notes">Notes</label>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success" style="width: 100% !important">Make Plant</button>
+        </div>
+    </form>
+<br><br>
+{% endblock %}
