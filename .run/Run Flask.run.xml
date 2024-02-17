@@ -1,0 +1,27 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Flask" type="Python.FlaskServer">
+    <option name="additionalOptions" value="--host=0.0.0.0 --port=1337" />
+    <module name="hack-sussex" />
+    <option name="target" value="$PROJECT_DIR$/app/__init__.py" />
+    <option name="targetType" value="PATH" />
+    <option name="ENV_FILES" value="" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="false" />
+    <envs>
+      <env name="DB_ADDRESS" value="sussex.thejmc.net" />
+      <env name="DB_PORT" value="25560" />
+      <env name="DB_USER" value="root" />
+      <env name="DB_PASSWORD" value="thisisasupersecurepassword" />
+      <env name="DB_DATABASE" value="db" />
+    </envs>
+    <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/bin/python" />
+    <option name="SDK_NAME" value="New Python Venv HS-24" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+    <option name="IS_MODULE_SDK" value="false" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+    <option name="launchJavascriptDebuger" value="false" />
+    <method v="2" />
+  </configuration>
+</component>
