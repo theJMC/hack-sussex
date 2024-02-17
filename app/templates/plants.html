@@ -6,31 +6,31 @@
 {% endblock %}
 
 {% block content %}
-<h3 style="text-align: center;">Your Plants!</h3>
-<hr>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Sunlight</th>
-            <th>Water</th>
-            <th>Vibe</th>
-            <th>Species</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for plant in plants %}
-        <tr>
-            <th>{{ plant.name }}</th>
-            <td>{{ plant.type }}</td>
-            <td>{{ plant.sunlight }}</td>
-            <td>{{ plant.water }}</td>
-            <td>{{ plant.vibes }}</td>
-            <td>{{ plant.species }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="container pt-4">
+    <div class="container row">
+        <div class="col-2"><i class="bi bi-arrow-left-square-fill" style="font-size: 50px;"></i></div>
+        <div class="col-8 text-center">
+            <h3>JEREMY</h3>
+            <h4>Loremus Ipsumus</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <img src="/static/img/plamt.png">
+        </div>
+        <p><strong>Spicy</strong> and <strong>Agressive</strong> Plant</p>
+        <div>
+            <div class="row align-items-center">
+                <div class="col-2"><i class="bi bi-droplet-fill" style="font-size: 40px;"></i></div>
+                <div class="col-10">
+                    <div class="progress" style="height: 40px" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar text-bg-warning" style="width: 75%">75%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <br><br>
 {% endblock %}

@@ -35,14 +35,19 @@ def new_plant(user):
     return request.json
 
 
-@plant_api.route("/tick")
+@plant_api.route("/update", methods=["POST"])
 @api_auth
 def tick(user):
-    all_plants = Plant.query.filter_by(owner=user.id).all()
-    with open("tick_vals.json") as file:
-        tick_vals = json.load(file)
-    for plant in all_plants:
-        print(plant.name)
-    return "200"
+    updated_plant = request.json
+    to_update = Plant.query.filter_by().all()
+    to_update.name = updated_plant["name"]
+    to_update.type = updated_plant["type"]
+    to_update.sunlight = updated_plant["sunlight"]
+    to_update.water = updated_plant["water"]
+    to_update.notes = updated_plant["notes"]
+    to_update.vibes = updated_plant["vibes"]
+    to_update.species = updated_plant["species"]
+    db.session.commit()
+    return str(to_update.id)
 
 
