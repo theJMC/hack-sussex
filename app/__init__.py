@@ -6,11 +6,13 @@ import os
 db = SQLAlchemy()
 migrate = Migrate()
 
-DB_USER = os.getenv('DB_USER')
-DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_ADDRESS = os.getenv('DB_ADDRESS')
-DB_PORT = os.getenv('DB_PORT')
-DB_DATABASE = os.getenv('DB_DATABASE')
+DEV_MODE = False
+
+DB_USER = os.getenv('DB_USER') if not DEV_MODE else 'root'
+DB_PASSWORD = os.getenv('DB_PASSWORD') if not DEV_MODE else 'thisisasupersecurepassword'
+DB_ADDRESS = os.getenv('DB_ADDRESS') if not DEV_MODE else 'db.sussex.thejmc.net'
+DB_PORT = os.getenv('DB_PORT') if not DEV_MODE else '25560'
+DB_DATABASE = os.getenv('DB_DATABASE') if not DEV_MODE else 'db'
 
 DB_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}" \
         f"@{DB_ADDRESS}:{DB_PORT}/{DB_DATABASE}"

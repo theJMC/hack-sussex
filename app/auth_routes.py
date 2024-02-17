@@ -46,7 +46,7 @@ def signup():
     user_id = uuid4()
 
     token = sha256(email.encode('utf-8') + passhash.encode('utf-8'))
-    db.session.add(User(id=user_id, name=name, email=email, password=passhash, token=token.hexdigest()))
+    db.session.add(User(id=user_id, name=name, email=email, password=passhash, overall_status=50, token=token.hexdigest()))
     db.session.commit()
     return {"id": str(user_id), "status": 200}
 
