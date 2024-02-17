@@ -1,0 +1,19 @@
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link {% if currentPage == "home" %}active{% endif %}" aria-current="page" href="/">Home</a>
+    </li>
+    {% if loggedIn %}
+        <li class="nav-item">
+          <a class="nav-link {% if currentPage == "profile" %}active{% endif %}" aria-current="page" href="/profile">Profile</a>
+        </li>
+    {% endif %}
+</ul>
+{% if not loggedIn %}
+    <div class="btn-group d-flex" role="group" aria-label="Basic example">
+        <a type="button" class="btn btn-outline-primary" href="/login">Log In</a>
+    </div>
+{% else  %}
+    <div class="btn-group d-flex" role="group" aria-label="Basic example">
+        <a type="button" class="btn btn-outline-danger" href="/logout">Log Out</a>
+    </div>
+{% endif %}

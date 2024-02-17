@@ -1,0 +1,28 @@
+{% extends "layouts/layout.html" %}
+{% block title %}Smart Plants{% endblock %}
+
+{% block navbarContents %}
+
+{% endblock %}
+
+{% block content %}
+<h3 style="text-align: center;">Smart Plants Profile!</h3>
+<hr>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td>{{ user.name }}</td>
+        </tr>
+    </tbody>
+</table>
+<br><br>
+{% endblock %}

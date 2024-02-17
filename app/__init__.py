@@ -21,4 +21,7 @@ def create_app():
     from .plants.plant_api import plant_api as plant_blueprint
     app.register_blueprint(plant_blueprint, url_prefix='/api/plant')
 
+    from .auth_routes import auth_routes as auth_blueprint
+    app.register_blueprint(auth_blueprint)
+
     return app
