@@ -15,8 +15,7 @@ def plant_status(user):
     if user is None:
         return Response("User not found", status=404)
 
-    plants = Plant.query.filter_by(owner=user.id).all()
-    all_plants = [(plant.id, plant.name, plant.type) for plant in plants]
+    all_plants = [(plant.id, plant.name, plant.type) for plant in Plant.query.filter_by(owner=user.id).all()]
     return all_plants
 
 
@@ -34,3 +33,16 @@ def new_plant(user):
                          water=currentType["water"], owner=user.id))
     db.session.commit()
     return request.json
+
+
+@plant_api.route("/tick")
+@api_auth
+def tick(user):
+    all_plants = Plant.query.filter_by(owner=user.id).all()
+    with open("tick_vals.json") as file:
+        tick_vals = json.load(file)
+    for plant in all_plants:
+        print(plant.name)
+    return "200"
+
+

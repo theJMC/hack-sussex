@@ -9,6 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
     token = db.Column(db.String(1000))
+    overall_status = db.Column(db.Integer)
 
 
 class Plant(db.Model):
