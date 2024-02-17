@@ -10,7 +10,7 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = \
         f"mysql+pymysql://root:thisisasupersecurepassword" \
-        f"@db.lh.thejmc.net/db"
+        f"@sussex.thejmc.net:3306/db"
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
     db.init_app(app)
