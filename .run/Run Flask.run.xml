@@ -15,7 +15,7 @@
       <env name="DB_DATABASE" value="db" />
     </envs>
     <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/bin/python" />
-    <option name="SDK_NAME" value="New Python Venv HS-24" />
+    <option name="SDK_NAME" value="Python 3.10 (hack-sussex)" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
