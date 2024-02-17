@@ -19,4 +19,5 @@ class Plant(db.Model):
     water = db.Column(db.Integer)
     notes = db.Column(db.String(300))
     vibes = db.Column(db.String(100))
+    species = db.Column(db.String(100))
     owner = db.Column(db.String(100), ForeignKey('user.id'))

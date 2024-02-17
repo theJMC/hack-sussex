@@ -11,23 +11,23 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Type</th>
             <th>Sunlight</th>
             <th>Water</th>
             <th>Vibe</th>
+            <th>Species</th>
         </tr>
     </thead>
     <tbody>
         {% for plant in plants %}
         <tr>
-            <th>{{ plant.id }}</th>
             <th>{{ plant.name }}</th>
             <td>{{ plant.type }}</td>
             <td>{{ plant.sunlight }}</td>
             <td>{{ plant.water }}</td>
             <td>{{ plant.vibes }}</td>
+            <td>{{ plant.species }}</td>
         </tr>
         {% endfor %}
     </tbody>
