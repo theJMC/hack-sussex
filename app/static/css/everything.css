@@ -46,3 +46,27 @@ h1 {
     padding-right: 50px;
 }
 
+#user-plants {
+    width: 66%;
+    margin: auto;
+}
+
+.plant, .plant-add {
+    background-color: #d7ebd7;
+    border-color: var(--dark-grey);
+    border-style: solid;
+    border-radius: 40px;
+    margin-right: 10px;
+    width: 48.5%;
+    aspect-ratio: 1/1;
+}
+
+.plant-add {
+    background-color: var(--light-grey);
+    font-size: 1500%;
+    color: var(--dark-grey);
+}
+
+#user-percent {
+    background: linear-gradient(to left, var(--mid-green) 50%, var(--pale-green) 50%);
+}
