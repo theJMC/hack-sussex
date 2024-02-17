@@ -11,7 +11,20 @@ services:
     ports:
       - "3306:3306"
 
-  proxy:
-    build: ./proxy
+#  proxy:
+#    build: ./proxy
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - app
+
+  app:
+    build: ./app
+    environment:
+      - DB_ADDRESS=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=thisisasupersecurepassword
+      - DB_DATABASE=db
     ports:
-      - "80:80"
+      - "1337:1337"
