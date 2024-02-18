@@ -1,0 +1,58 @@
+{% extends "layouts/layout.html" %}
+{% block title %}Smart Plants{% endblock %}
+
+{% block navbarContents %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="container row">
+        <div class="col-2"><i class="bi bi-arrow-left-square-fill" style="font-size: 50px;"></i></div>
+        <div class="col-8 text-center">
+            <h3>{{ plant.name }}</h3>
+            <h4>{{ plant.type}}</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <img src="/static/img/plamt.png" style="height: 50vh;">
+        </div>
+        <p class="text-center">{{ plant.vibes }} Plant</p>
+        <div>
+            <div class="row align-items-center">
+                <div class="col-1 text-end text-primary"><i class="bi bi-droplet-fill" style="font-size: 40px;"></i></div>
+                <div class="col-10">
+                    <div class="progress" style="height: 40px" role="progressbar" aria-valuenow="{{ plant.water }}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar text-bg-primary" style="width: {{ plant.water }}%">{{ plant.water }}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-1 text-end text-warning"><i class="bi bi-brightness-high-fill" style="font-size: 40px;"></i></div>
+                <div class="col-10">
+                    <div class="progress" style="height: 40px" role="progressbar" aria-valuenow="{{ plant.sunlight }}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar text-bg-warning" style="width: {{ plant.sunlight }}%">{{ plant.sunlight }}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 p-2 text-center">
+                <p>{{ plant.notes }}</p>
+                <p>{{ plant.muted }}</p>
+            </div>
+            <div class="col-4 p-2 d-flex justify-content-center">
+                {% if plant.muted %}
+                    <button id="mute-button" data-plant-id="{{ plant.id }}" data-muted="true" class="btn btn-secondary" style="height: 10vh; width: 10vh;font-size: 5vh; border-radius: 30px"><i class="bi bi-volume-up"></i></button>
+                {% else %}
+                    <button id="mute-button" data-plant-id="{{ plant.id }}" data-muted="false" class="btn btn-secondary" style="height: 10vh; width: 10vh;font-size: 5vh; border-radius: 30px"><i class="bi bi-volume-mute"></i></button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+    <script src="/static/js/plant_view.js"></script>
+{% endblock %}

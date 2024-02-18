@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, abort
 from sqlalchemy.sql.functions import user
 
 from .auth import page_auth
@@ -18,6 +18,7 @@ def is_logged_in():
 
 
 @main.route('/')
+@page_auth
 def index():
     context["loggedIn"] = is_logged_in()
     context["currentPage"] = "home"
@@ -32,15 +33,29 @@ def profile_page(user):
     context["user"] = {"name": user.name, "email": user.email}
     return render_template("profile.html", **context)
 
+@main.route("/myplants")
+@page_auth
+def myplants_page(user):
+    context["loggedIn"] = is_logged_in()
+    context["currentPage"] = "myplants"
+    context["user"] = {"name": user.name, "overall_status": user.overall_status}
+    context["plants"] = Plant.query.filter_by(owner=user.id).all()
+    return render_template("myplants.html", **context)
 
-@main.route('/plants')
+@main.route('/plant/')
 @page_auth
 def plants_page(user):
     context["loggedIn"] = is_logged_in()
     context["currentPage"] = "plants"
     context["user"] = {"name": user.name}
-    context["plants"] = Plant.query.filter_by(owner=user.id).all()
-    return render_template("plants.html", **context)
+    plant_id = request.args.get("plant_id")
+    plant = Plant.query.filter_by(id=plant_id).first()
+    if plant is None:
+        return abort(404)
+    if plant.owner != user.id:
+        return abort(401)
+    context["plant"] = plant
+    return render_template("plant.html", **context)
 
 @main.route('/new_plant')
 @page_auth

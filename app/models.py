@@ -22,3 +22,4 @@ class Plant(db.Model):
     vibes = db.Column(db.String(100))
     species = db.Column(db.String(100))
     owner = db.Column(db.String(100), ForeignKey('user.id'))
+    muted = db.Column(db.Boolean)
