@@ -50,9 +50,10 @@
       </div>
 </form>
 
+<br>
 <h4 class="text-center">Congratulations</h4>
 <div class="d-flex justify-content-center">
-<div id="type-mesg" class="text-center" <p> Your [plant-classification] has a <b>[type]</b> personality </p></div>
+<div id="type-mesg" class="text-center"> <p> Your plant has a <b>Fresh</b> personality </p></div>
 </div>
 
 <!-- Plant Add Form -->
@@ -66,8 +67,8 @@
 
         <br>
         <div class="form-floating mb-1">
-            <input type="text" id="type" class="form-control" placeholder="type" disabled>
-            <label for="type">[type]</label>
+            <input type="text" id="type" class="form-control" placeholder="type" value="Fresh" disabled>
+            <label for="type">Type</label>
         </div>
         <div class="form-floating mb-1">
             <textarea class="form-control" placeholder="notes" id="notes" style="height: 100px;"></textarea>
@@ -83,54 +84,79 @@
 console.log("working")
 
 window.addEventListener('load', function() {
-    console.log("JE::P")
     const checkboxes = document.getElementsByClassName('form-check-input');
 
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('change', function() { 
-          let spicy = 0;
-          let sweet =0;
-          let soft = 0;
-          let agressive = 0;
-          let fresh = 0;
-            if (checkbox[0].checked){
-              spicy -= 1
-              sweet += 2
-              soft += 0;
-              agressive += 0;
-              fresh += 0;
-            }
-            if (checkbox[1].checked) {
-              spicy += 1;
-              sweet += 1;
-              soft -= 1;
-              agressive += 2;
-              fresh += 0;
-            }
-            if (checkbox[2].checked) {
-              spicy += 0;
+            let spicy = 0;
+            let sweet = 0;
+            let soft = 0;
+            let aggressive = 0;
+            let fresh = 0;
+
+            if (checkboxes[0].checked){
+              spicy += -2;
               sweet += 2;
               soft += 1;
-              agressive += 2;
+              aggressive += 0;
+              fresh += 0;
+              console.log(spicy, sweet, soft, aggressive, fresh);
+            }
+            if (checkboxes[1].checked) {
+              spicy += 4;
+              sweet += 1;
+              soft -= 1;
+              aggressive += 2;
+              fresh += -1;
+              console.log(spicy, sweet, soft, aggressive, fresh);
+            }
+            if (checkboxes[2].checked) {
+              spicy += 0;
+              sweet += 3;
+              soft += 3;
+              aggressive += -1;
               fresh += 0;
             }
-            if (checkbox[3].checked) {
+            if (checkboxes[3].checked) {
               spicy += 1;
               sweet += 0;
               soft += 1;
-              agressive += 0;
-              fresh += 2;
+              aggressive += 0;
+              fresh += 4;
             }
-            if (checkbox[4].checked) {
+            if (checkboxes[4].checked) {
               spicy += 0;
               sweet += 1;
-              soft += 2;
-              agressive -= 1;
-              fresh += 1;
+              soft += 3;
+              aggressive -= 1;
+              fresh += 3;
             }
+
+            // Determine personality type
+            let type = '';
+            if (spicy > sweet) {
+              type += 'Spicy ';
+            } else {
+              type += 'Sweet ';
+            }
+
+            if (soft > aggressive) {
+              type += 'Soft ';
+            } else {
+              type += 'Aggressive ';
+            }
+
+            if (fresh >= 4){
+              type += 'Fresh ';
+            }
+
+            // Update HTML
+            document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
+            document.getElementById("type").value = type;
         });
     }
 });
+
 
     </script>
 {% endblock %}
