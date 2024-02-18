@@ -52,7 +52,7 @@
 
 <h4 class="text-center">Congratulations</h4>
 <div class="d-flex justify-content-center">
-<div id="type-mesg" class="text-center" <p> Your [plant-classification] has a <b>[type]</b> personality </p></div>
+<div id="type-mesg" class="text-center"> <p> Your [plant-classification] has a <b>[type]</b> personality </p></div>
 </div>
 
 <!-- Plant Add Form -->
@@ -93,17 +93,37 @@ window.addEventListener('load', function() {
           let soft = 0;
           let agressive = 0;
           let fresh = 0;
-            if (checkbox[0].checked){
+            if (checkboxes[0].checked){
               spicy -= 1
               sweet += 2
               soft += 0;
               agressive += 0;
               fresh += 0;
+              console.log("work sweet")
             }
-            if (checkbox[1].checked) {
+            if (checkboxes[1].checked) {
 
             }
         });
+
+        //edit HTML
+        let type = ''
+        if (spicy > sweet) {
+          type += 'Spicy '
+        } else {
+          type += 'Sweet '
+        }
+
+        if (soft > agressive) {
+          type += 'Soft '
+        } else {
+          type += 'Agressive '
+        }
+
+        if (fresh >= 5){
+          type += 'Fresh '
+        }
+        document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
     }
 });
 
