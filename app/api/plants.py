@@ -19,18 +19,19 @@ def plant_status(user):
     return all_plants
 
 
-@plant_api.route("/new")
+@plant_api.route("/new", methods=["POST"])
 @api_auth
 def new_plant(user):
     plant_name = request.json["plant_name"]
     plant_type = request.json["plant_type"]
+    plant_vibe = request.json["plant_vibe"]
     with open("default_plants.json") as file:
         data = json.load(file)
-    if plant_type not in data:
-        return Response("plant_type is invalid", status=400)
-    currentType = data[plant_type]
-    db.session.add(Plant(id=str(uuid4()), name=plant_name, type=plant_type, sunlight=currentType["sunlight"],
-                         water=currentType["water"], owner=user.id))
+    # if plant_type not in data:
+    #     return Response("plant_type is invalid", status=400)
+    # currentType = data[plant_type]
+    db.session.add(Plant(id=str(uuid4()), name=plant_name, type=plant_type, sunlight=50,
+                         water=50, vibes=plant_vibe, owner=user.id))
     db.session.commit()
     return request.json
 

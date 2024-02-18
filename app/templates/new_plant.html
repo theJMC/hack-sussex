@@ -58,7 +58,7 @@
 
 <!-- Plant Add Form -->
 <br>
-    <form>
+    <form id="add_form">
         <h4 class="text-center">Give it a name</h4>
         <div class="form-floating mb-1">
             <input type="text" id="name" class="form-control" placeholder="name">
@@ -75,7 +75,7 @@
             <label for="notes">Notes</label>
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-success" style="width: 100% !important">Make Plant</button>
+            <button type="submit" id="plant_submit" class="btn btn-success" style="width: 100% !important">Make Plant</button>
         </div>
     </form>
 <br><br>
@@ -83,8 +83,34 @@
 // new plant form
 console.log("working")
 
+
+
+function send_plant(e) {
+    e.preventDefault()
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/plant/new", false);
+    xhr.setRequestHeader("Content-Type", "application/json")
+    let token = getCookie("token")
+    xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+    let plant_name = document.getElementById("name").value;
+    let plant_vibe = document.getElementById("type").value
+    let data = {
+        "plant_name": plant_name,
+        "plant_type": "Loremus Ipsumus",
+        "plant_vibe": plant_vibe
+    }
+    console.log(data)
+    xhr.send(JSON.stringify(data));
+    if (xhr.status === "200") {
+        alert("DONE")
+    } else{
+        alert(xhr.responseText)
+    }
+}
+
 window.addEventListener('load', function() {
     const checkboxes = document.getElementsByClassName('form-check-input');
+
 
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('change', function() { 
@@ -155,6 +181,11 @@ window.addEventListener('load', function() {
             document.getElementById("type").value = type;
         });
     }
+
+
+    // Plant Submit
+    document.getElementById("add_form").addEventListener("submit", send_plant)
+
 });
 
 
