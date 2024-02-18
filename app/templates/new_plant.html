@@ -50,6 +50,7 @@
       </div>
 </form>
 
+<br>
 <h4 class="text-center">Congratulations</h4>
 <div class="d-flex justify-content-center">
 <div id="type-mesg" class="text-center"> <p> Your plant has a <b>Fresh</b> personality </p></div>
@@ -94,26 +95,26 @@ window.addEventListener('load', function() {
             let fresh = 0;
 
             if (checkboxes[0].checked){
-              spicy += -1;
+              spicy += -2;
               sweet += 2;
-              soft += 0;
+              soft += 1;
               aggressive += 0;
               fresh += 0;
               console.log(spicy, sweet, soft, aggressive, fresh);
             }
             if (checkboxes[1].checked) {
-              spicy += 2;
+              spicy += 4;
               sweet += 1;
               soft -= 1;
               aggressive += 2;
-              fresh += 0;
+              fresh += -1;
               console.log(spicy, sweet, soft, aggressive, fresh);
             }
             if (checkboxes[2].checked) {
               spicy += 0;
-              sweet += 2;
-              soft += 1;
-              aggressive += 2;
+              sweet += 3;
+              soft += 3;
+              aggressive += -1;
               fresh += 0;
             }
             if (checkboxes[3].checked) {
@@ -121,12 +122,12 @@ window.addEventListener('load', function() {
               sweet += 0;
               soft += 1;
               aggressive += 0;
-              fresh += 3;
+              fresh += 4;
             }
             if (checkboxes[4].checked) {
               spicy += 0;
               sweet += 1;
-              soft += 2;
+              soft += 3;
               aggressive -= 1;
               fresh += 3;
             }
@@ -145,33 +146,14 @@ window.addEventListener('load', function() {
               type += 'Aggressive ';
             }
 
-            if (fresh >= 5){
+            if (fresh >= 4){
               type += 'Fresh ';
             }
 
             // Update HTML
             document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
+            document.getElementById("type").value = type;
         });
-
-        //edit HTML
-        let type = ''
-        if (spicy > sweet) {
-          type += 'Spicy '
-        } else {
-          type += 'Sweet '
-        }
-
-        if (soft > agressive) {
-          type += 'Soft '
-        } else {
-          type += 'Agressive '
-        }
-
-        if (fresh >= 5){
-          type += 'Fresh '
-        }
-        document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
-        document.getElementById("type").value = type
     }
 });
 
