@@ -42,7 +42,7 @@ def plants_page(user):
     context["plants"] = Plant.query.filter_by(owner=user.id).all()
     return render_template("plants.html", **context)
 
-@main.route('/plants/new')
+@main.route('/new_plant')
 @page_auth
 def new_plant_page(user):
     context["loggedIn"] = is_logged_in()
