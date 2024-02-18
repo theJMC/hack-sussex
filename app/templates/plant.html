@@ -24,6 +24,7 @@
             <div class="row align-items-center">
                 <div class="col-1 text-end text-primary"><i class="bi bi-droplet-fill" style="font-size: 40px;"></i></div>
                 <div class="col-10">
+                    <input type="text" id="water_val" value="{{ plant.water }}" hidden>
                     <div class="progress" style="height: 40px" role="progressbar" aria-valuenow="{{ plant.water }}" aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-bar text-bg-primary" style="width: {{ plant.water }}%">{{ plant.water }}%</div>
                     </div>
@@ -32,6 +33,7 @@
             <div class="row align-items-center">
                 <div class="col-1 text-end text-warning"><i class="bi bi-brightness-high-fill" style="font-size: 40px;"></i></div>
                 <div class="col-10">
+                    <input type="text" id="sunlight_val" value="{{ plant.sunlight }}" hidden>
                     <div class="progress" style="height: 40px" role="progressbar" aria-valuenow="{{ plant.sunlight }}" aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-bar text-bg-warning" style="width: {{ plant.sunlight }}%">{{ plant.sunlight }}%</div>
                     </div>
@@ -53,6 +55,9 @@
         </div>
     </div>
 </div>
+    <audio id="drowning" src="/static/sfx/drowning.mp3"></audio>
+    <audio id="scream" src="/static/sfx/scream.mp3"></audio>
+    <audio id="just_right" src="/static/sfx/gernot_coolcoolcool.mp3"></audio>
 <br><br>
     <script src="/static/js/plant_view.js"></script>
 {% endblock %}
