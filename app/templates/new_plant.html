@@ -52,7 +52,7 @@
 
 <h4 class="text-center">Congratulations</h4>
 <div class="d-flex justify-content-center">
-<div id="type-mesg" class="text-center"> <p> Your [plant-classification] has a <b>[type]</b> personality </p></div>
+<div id="type-mesg" class="text-center"> <p> Your plant has a <b>Fresh</b> personality </p></div>
 </div>
 
 <!-- Plant Add Form -->
@@ -83,27 +83,73 @@
 console.log("working")
 
 window.addEventListener('load', function() {
-    console.log("JE::P")
     const checkboxes = document.getElementsByClassName('form-check-input');
 
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('change', function() { 
-          let spicy = 0;
-          let sweet =0;
-          let soft = 0;
-          let agressive = 0;
-          let fresh = 0;
+            let spicy = 0;
+            let sweet = 0;
+            let soft = 0;
+            let aggressive = 0;
+            let fresh = 0;
+
             if (checkboxes[0].checked){
-              spicy -= 1
-              sweet += 2
+              spicy += -1;
+              sweet += 2;
               soft += 0;
-              agressive += 0;
+              aggressive += 0;
               fresh += 0;
-              console.log("work sweet")
+              console.log(spicy, sweet, soft, aggressive, fresh);
             }
             if (checkboxes[1].checked) {
-
+              spicy += 1;
+              sweet += 1;
+              soft -= 1;
+              aggressive += 2;
+              fresh += 0;
             }
+            if (checkboxes[2].checked) {
+              spicy += 0;
+              sweet += 2;
+              soft += 1;
+              aggressive += 2;
+              fresh += 0;
+            }
+            if (checkboxes[3].checked) {
+              spicy += 1;
+              sweet += 0;
+              soft += 1;
+              aggressive += 0;
+              fresh += 3;
+            }
+            if (checkboxes[4].checked) {
+              spicy += 0;
+              sweet += 1;
+              soft += 2;
+              aggressive -= 1;
+              fresh += 3;
+            }
+
+            // Determine personality type
+            let type = '';
+            if (spicy > sweet) {
+              type += 'Spicy ';
+            } else {
+              type += 'Sweet ';
+            }
+
+            if (soft > aggressive) {
+              type += 'Soft ';
+            } else {
+              type += 'Aggressive ';
+            }
+
+            if (fresh >= 5){
+              type += 'Fresh ';
+            }
+
+            // Update HTML
+            document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
         });
 
         //edit HTML
@@ -126,6 +172,7 @@ window.addEventListener('load', function() {
         document.getElementById("type-mesg").innerHTML = 'Your plant has a <b>'+ type +'</b> personality';
     }
 });
+
 
     </script>
 {% endblock %}
