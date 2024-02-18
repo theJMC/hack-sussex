@@ -9,6 +9,12 @@
         <li class="nav-item">
           <a class="nav-link {% if currentPage == "plants" %}active{% endif %}" aria-current="page" href="/plants">Plants</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {% if currentPage == "myplants" %}active{% endif %}" aria-current="page" href="/myplants">Concept All Plants Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if currentPage == "new_plant" %}active{% endif %}" aria-current="page" href="/new_plant">Concept New Plants Page</a>
+        </li>
     {% endif %}
 </ul>
 {% if not loggedIn %}

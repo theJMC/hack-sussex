@@ -32,6 +32,16 @@ def profile_page(user):
     context["user"] = {"name": user.name, "email": user.email}
     return render_template("profile.html", **context)
 
+@main.route('/plants')
+@page_auth
+def all_plants_page(user):
+    context["loggedIn"] = is_logged_in()
+    context["currentPage"] = "plants"
+    context["user"] = {"name": user.name}
+    context["plants"] = Plant.query.filter_by(owner=user.id).all()
+    return render_template("all_plants.html", **context)
+
+
 @main.route("/myplants")
 @page_auth
 def myplants_page(user):
@@ -60,6 +70,6 @@ def plants_page(user):
 @page_auth
 def new_plant_page(user):
     context["loggedIn"] = is_logged_in()
-    context["currentPage"] = ""
+    context["currentPage"] = "new_plant"
     context["user"] = {"name": user.name}
     return render_template("new_plant.html", **context)
