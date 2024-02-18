@@ -6,7 +6,7 @@ import os
 db = SQLAlchemy()
 migrate = Migrate()
 
-DEV_MODE = False
+DEV_MODE = True
 
 DB_USER = os.getenv('DB_USER') if not DEV_MODE else 'root'
 DB_PASSWORD = os.getenv('DB_PASSWORD') if not DEV_MODE else 'thisisasupersecurepassword'

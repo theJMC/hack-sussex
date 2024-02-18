@@ -34,7 +34,7 @@ body {
     padding: 3vh;
 }
 
-h1 {
+h1, h4 {
     font-family:'DM Serif Display', 'Times New Roman', Times, serif;
 }
 
@@ -84,4 +84,11 @@ h1 {
 
 #welcome {
     background-color: var(--dark-grey);
+}
+
+#type-mesg {
+    background-color: var(--light-grey);
+    border-color: var(--dark-grey);
+    border-style: solid;
+    width: 60%;
 }

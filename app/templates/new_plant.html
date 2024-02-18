@@ -12,16 +12,62 @@
         max-width: 475px;
     }
     </style>
-<h3 style="text-align: center;">New Plant!</h3>
+<br>
+<h1 class="text-center">New Plant!</h1>
 <hr>
-    <form style="width: ">
+
+<!-- Personality Type -->
+<form>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          My plant would thank the bus driver
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Default checkbox
+        </label>
+      </div>
+</form>
+
+<h4 class="text-center">Congratulations</h4>
+<div class="d-flex justify-content-center">
+<div id="type-mesg" class="text-center" <p> Your [plant-classification] has a <b>[type]</b> personality </p></div>
+</div>
+
+<!-- Plant Add Form -->
+<br>
+    <form>
+        <h4 class="text-center">Give it a name</h4>
         <div class="form-floating mb-1">
             <input type="text" id="name" class="form-control" placeholder="name">
             <label for="name">Name</label>
         </div>
+
+        <br>
         <div class="form-floating mb-1">
-            <input type="text" id="type" class="form-control" placeholder="type">
-            <label for="type">Type</label>
+            <input type="text" id="type" class="form-control" placeholder="type" disabled>
+            <label for="type">[type]</label>
         </div>
         <div class="form-floating mb-1">
             <textarea class="form-control" placeholder="notes" id="notes" style="height: 100px;"></textarea>
