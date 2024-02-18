@@ -78,5 +78,34 @@
         </div>
     </form>
 <br><br>
-    <script src="/static/js/new_plant_form"></script>
+    <script>
+// new plant form
+console.log("working")
+
+window.addEventListener('load', function() {
+    console.log("JE::P")
+    const checkboxes = document.getElementsByClassName('form-check-input');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function() { 
+          let spicy = 0;
+          let sweet =0;
+          let soft = 0;
+          let agressive = 0;
+          let fresh = 0;
+            if (checkbox[0].checked){
+              spicy -= 1
+              sweet += 2
+              soft += 0;
+              agressive += 0;
+              fresh += 0;
+            }
+            if (checkbox[1].checked) {
+
+            }
+        });
+    }
+});
+
+    </script>
 {% endblock %}
