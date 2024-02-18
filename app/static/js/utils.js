@@ -7,4 +7,3 @@ function hash(string) {
         .join('');
   });
 }
-

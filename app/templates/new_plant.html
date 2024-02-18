@@ -66,8 +66,8 @@
 
         <br>
         <div class="form-floating mb-1">
-            <input type="text" id="type" class="form-control" placeholder="type" disabled>
-            <label for="type">[type]</label>
+            <input type="text" id="type" class="form-control" placeholder="type" value="Fresh" disabled>
+            <label for="type">Type</label>
         </div>
         <div class="form-floating mb-1">
             <textarea class="form-control" placeholder="notes" id="notes" style="height: 100px;"></textarea>
@@ -102,11 +102,12 @@ window.addEventListener('load', function() {
               console.log(spicy, sweet, soft, aggressive, fresh);
             }
             if (checkboxes[1].checked) {
-              spicy += 1;
+              spicy += 2;
               sweet += 1;
               soft -= 1;
               aggressive += 2;
               fresh += 0;
+              console.log(spicy, sweet, soft, aggressive, fresh);
             }
             if (checkboxes[2].checked) {
               spicy += 0;
