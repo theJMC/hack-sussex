@@ -35,12 +35,12 @@ def profile_page(user):
 
 @main.route("/myplants")
 @page_auth
-def myplants_page():
+def myplants_page(user):
     context["loggedIn"] = is_logged_in()
     context["currentPage"] = "myplants"
-    context["user"] = {"name": user.name}
+    context["user"] = {"name": user.name, "overall_status": user.overall_status}
     context["plants"] = Plant.query.filter_by(owner=user.id).all()
-    return render_template("myplants.html")
+    return render_template("myplants.html", **context)
 
 @main.route('/plant/')
 @page_auth
