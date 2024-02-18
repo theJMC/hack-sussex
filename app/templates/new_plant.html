@@ -101,7 +101,32 @@ window.addEventListener('load', function() {
               fresh += 0;
             }
             if (checkbox[1].checked) {
-
+              spicy += 1;
+              sweet += 1;
+              soft -= 1;
+              agressive += 2;
+              fresh += 0;
+            }
+            if (checkbox[2].checked) {
+              spicy += 0;
+              sweet += 2;
+              soft += 1;
+              agressive += 2;
+              fresh += 0;
+            }
+            if (checkbox[3].checked) {
+              spicy += 1;
+              sweet += 0;
+              soft += 1;
+              agressive += 0;
+              fresh += 2;
+            }
+            if (checkbox[4].checked) {
+              spicy += 0;
+              sweet += 1;
+              soft += 2;
+              agressive -= 1;
+              fresh += 1;
             }
         });
     }
