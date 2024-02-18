@@ -18,7 +18,6 @@ def is_logged_in():
 
 
 @main.route('/')
-@page_auth
 def index():
     context["loggedIn"] = is_logged_in()
     context["currentPage"] = "home"
