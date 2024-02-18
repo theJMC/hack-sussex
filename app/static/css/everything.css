@@ -47,7 +47,7 @@ h1 {
 }
 
 #user-plants {
-    width: 66%;
+    width: 60%;
     margin: auto;
 }
 
@@ -67,6 +67,21 @@ h1 {
     color: var(--dark-grey);
 }
 
+.custom-progress {
+    height: 40px;
+    background-color: var(--mid-green); /* Set the background color to gray coral */
+}
+
+.custom-progress-bar {
+    background-color: var(--pale-green); /* Set the progress bar color to light green */
+    color: white; /* Text color */
+}
+
+
 #user-percent {
     background: linear-gradient(to left, var(--mid-green) 50%, var(--pale-green) 50%);
+}
+
+#welcome {
+    background-color: var(--dark-grey);
 }
